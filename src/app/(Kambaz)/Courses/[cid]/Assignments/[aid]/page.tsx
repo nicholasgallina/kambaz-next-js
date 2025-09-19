@@ -10,7 +10,6 @@ export default function AssignmentEditor() {
         style={{ width: "100%" }}
       />
       <br />
-      <br />
 
       {/* Description */}
       <textarea
