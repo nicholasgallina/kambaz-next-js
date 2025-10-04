@@ -4,14 +4,15 @@ import CourseNavigation from "./Navigation";
 
 interface CoursesLayoutProps {
   children: ReactNode;
-  params: { cid: string };
+  params: { cid: string } | Promise<{ cid: string }>;
 }
 
-export default function CoursesLayout({
+export default async function CoursesLayout({
   children,
   params,
 }: CoursesLayoutProps) {
-  const { cid } = params;
+  // Await params if it's a Promise
+  const { cid } = params instanceof Promise ? await params : params;
 
   return (
     <div id="wd-courses" className="p-3">
