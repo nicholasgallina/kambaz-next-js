@@ -5,20 +5,26 @@ import CourseNavigation from "./Navigation";
 export default function CoursesLayout({
   children,
   params,
-}: Readonly<{ children: ReactNode; params: { cid: string } }>) {
-  const { cid } = params;
+}: {
+  children: ReactNode;
+  params: any;
+}) {
+  const { cid } = params as { cid: string };
 
   return (
-    <div id="wd-courses">
-      <h2 className="text-danger">
-        <FaAlignJustify className="me-4 fs-4 mb-1" />
+    <div id="wd-courses" className="p-3">
+      <h2 className="text-danger mb-3 d-flex align-items-center">
+        <FaAlignJustify className="me-3 fs-4" />
         Course {cid}
       </h2>
       <hr />
       <div className="d-flex">
-        <div className="d-none d-md-block" style={{ width: "200px" }}>
+        {/* Sidebar */}
+        <div className="d-none d-md-block pe-3" style={{ width: "200px" }}>
           <CourseNavigation />
         </div>
+
+        {/* Main content */}
         <div className="flex-fill">{children}</div>
       </div>
     </div>
