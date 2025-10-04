@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { FaAlignJustify } from "react-icons/fa6";
 import CourseNavigation from "./Navigation";
 
-export default async function CoursesLayout({
+export default function CoursesLayout({
   children,
   params,
 }: Readonly<{ children: ReactNode; params: { cid: string } }>) {
